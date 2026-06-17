@@ -257,8 +257,37 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var box = document.getElementById('lightbox');
+      var boxImg = document.getElementById('lightboxImg');
+      function open(src, alt) {
+        boxImg.src = src;
+        boxImg.alt = alt || '';
+        box.classList.add('is-open');
+        box.setAttribute('aria-hidden', 'false');
+      }
+      function close() {
+        box.classList.remove('is-open');
+        box.setAttribute('aria-hidden', 'true');
+        boxImg.src = '';
+      }
+      document.querySelectorAll('.shot img').forEach(function (img) {
+        img.addEventListener('click', function () { open(img.src, img.alt); });
+      });
+      box.addEventListener('click', close);
+      document.getElementById('lightboxClose').addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+    })();
   </script>
 </body>
 </html>
