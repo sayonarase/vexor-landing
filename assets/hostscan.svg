@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="Inter, sans-serif">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6c8cff"/><stop offset="1" stop-color="#28e0c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="16" fill="#0e1530"/>
+  <rect x="0" y="0" width="640" height="48" rx="16" fill="#161f3d"/>
+  <rect x="0" y="32" width="640" height="16" fill="#161f3d"/>
+  <text x="24" y="29" fill="#9aa6c4" font-size="13" font-weight="600">Add host · Discovery scan</text>
+  <!-- host field -->
+  <rect x="24" y="68" width="430" height="40" rx="10" fill="#0b1020" stroke="#2a3556"/>
+  <text x="40" y="93" fill="#cdd5ea" font-size="14">192.168.1.50</text>
+  <rect x="466" y="68" width="150" height="40" rx="10" fill="url(#g2)"/>
+  <text x="500" y="93" fill="#0b1020" font-size="14" font-weight="700">Scan host</text>
+  <text x="24" y="138" fill="#e7ecf5" font-size="13" font-weight="600">Discovered services — pick what to monitor</text>
+  <!-- service rows -->
+  <g font-size="13">
+    <!-- row template -->
+    <g>
+      <rect x="24" y="152" width="592" height="40" rx="9" fill="#161f3d"/>
+      <rect x="40" y="164" width="18" height="18" rx="5" fill="#28e0c8"/>
+      <path d="M44 173 l3 3 l6 -6" stroke="#0b1020" stroke-width="2" fill="none"/>
+      <text x="74" y="177" fill="#e7ecf5">PING</text>
+      <text x="200" y="177" fill="#9aa6c4">ICMP reachability</text>
+      <text x="540" y="177" fill="#28e0c8">open</text>
+    </g>
+    <g>
+      <rect x="24" y="200" width="592" height="40" rx="9" fill="#161f3d"/>
+      <rect x="40" y="212" width="18" height="18" rx="5" fill="#28e0c8"/>
+      <path d="M44 221 l3 3 l6 -6" stroke="#0b1020" stroke-width="2" fill="none"/>
+      <text x="74" y="225" fill="#e7ecf5">SSH</text>
+      <text x="200" y="225" fill="#9aa6c4">tcp/22</text>
+      <text x="540" y="225" fill="#28e0c8">open</text>
+    </g>
+    <g>
+      <rect x="24" y="248" width="592" height="40" rx="9" fill="#161f3d"/>
+      <rect x="40" y="260" width="18" height="18" rx="5" fill="#28e0c8"/>
+      <path d="M44 269 l3 3 l6 -6" stroke="#0b1020" stroke-width="2" fill="none"/>
+      <text x="74" y="273" fill="#e7ecf5">RDP</text>
+      <text x="200" y="273" fill="#9aa6c4">tcp/3389</text>
+      <text x="540" y="273" fill="#28e0c8">open</text>
+    </g>
+    <g>
+      <rect x="24" y="296" width="592" height="40" rx="9" fill="#161f3d"/>
+      <rect x="40" y="308" width="18" height="18" rx="5" fill="#0b1020" stroke="#2a3556"/>
+      <text x="74" y="321" fill="#e7ecf5">FTP</text>
+      <text x="200" y="321" fill="#9aa6c4">tcp/21</text>
+      <text x="536" y="321" fill="#9aa6c4">closed</text>
+    </g>
+  </g>
+  <!-- agent banner -->
+  <rect x="24" y="348" width="592" height="36" rx="9" fill="#0b1020" stroke="#6c8cff"/>
+  <text x="40" y="371" fill="#6c8cff" font-size="13" font-weight="600">⚡ Agent detected — 12 extra checks available (CPU, memory, disk, services)</text>
+</svg>
