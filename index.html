@@ -3,34 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vexor — self-hosted monitoring (early access)</title>
-  <meta name="description" content="Vexor is a self-hosted monitoring platform in early development. Deploy agents from the browser, auto-scan hosts for services, and get SLA reports. Free trial licenses — testers welcome." />
+  <title>Vexor — self-hosted monitoring</title>
+  <meta name="description" content="Vexor is a self-hosted monitoring platform. Add a host, auto-scan for services, deploy agents from the browser, and get SLA reports. Runs on Rocky/RHEL 10 or Docker. Early access — free to try." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 </head>
 <body>
-  <!-- early-access banner -->
-  <div class="topnote">
-    Early access — Vexor is still in active development. It's free to try right now, and I'm looking for testers.
-  </div>
-
   <!-- NAV -->
   <header class="nav">
     <div class="container nav__inner">
       <a class="brand" href="#top">
-        <img src="assets/logo.svg" alt="" width="30" height="30" />
+        <img src="assets/logo.svg" alt="" width="28" height="28" />
         <span>Vexor</span>
       </a>
       <nav class="nav__links">
         <a href="#what">What it is</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
-        <a href="#try">Try it</a>
+        <a href="#install">Install</a>
+        <a href="https://demo.vexormon.com">Live demo</a>
+        <a href="https://github.com/sayonarase/vexor-monitoring">GitHub</a>
       </nav>
-      <a class="btn btn--primary" href="#try">Get a trial license</a>
+      <a class="btn btn--primary" href="#install">Install</a>
     </div>
   </header>
 
@@ -38,21 +35,21 @@
   <section class="hero" id="top">
     <div class="container hero__inner">
       <div class="hero__copy">
-        <h1>Self-hosted monitoring,<br />without the busywork.</h1>
+        <span class="tag">Self-hosted · open source stack · early access</span>
+        <h1>Monitoring that gets out of your way.</h1>
         <p class="lead">
-          Vexor watches your servers, network and services. You add a host, it
-          scans for the obvious things, and you can roll out an agent from the
-          browser when you want deeper checks. It runs on your own hardware —
-          your data stays with you.
+          Vexor keeps an eye on your servers, network and services. Add a host and
+          it scans for the obvious things; deploy an agent from the browser when you
+          want deeper checks. It runs on your own hardware — your data stays with you.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#try">Get a free trial license</a>
-          <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
+          <a class="btn btn--primary btn--lg" href="#install">Install it</a>
+          <a class="btn btn--ghost btn--lg" href="https://demo.vexormon.com">Try the live demo</a>
         </div>
-        <p class="hero__note">No account, no sales call. Built on Naemon, with a new UI and API on top.</p>
+        <p class="hero__note">Built on Naemon, with a new UI and API on top. Three commands on Rocky&nbsp;10, or one Docker image anywhere. <a href="https://demo.vexormon.com">Or poke around the live demo</a> — sign in with <code>demo</code>&nbsp;/&nbsp;<code>demo</code>, read-only, resets every hour.</p>
       </div>
       <div class="hero__art">
-        <img src="assets/01-dashboard.png" alt="Vexor dashboard, showing host status, a latency graph and a host list" />
+        <img src="assets/01-dashboard.png" alt="Vexor dashboard showing host status, a latency graph and a host list" />
       </div>
     </div>
   </section>
@@ -61,8 +58,8 @@
   <section class="section" id="what">
     <div class="container">
       <div class="section__head">
-        <h2>What Vexor does</h2>
-        <p>A short list of the things it's actually good at today — no buzzwords.</p>
+        <h2>What it does</h2>
+        <p>The things it's actually good at today.</p>
       </div>
       <div class="grid grid--2">
         <article class="feat">
@@ -71,7 +68,7 @@
           </span>
           <div>
             <h3>Deploy agents from the browser</h3>
-            <p>Push the NSClient++ (Windows) or NRPE (Linux) agent to a host from the UI — and bundle a few extra packages along with it if you need to.</p>
+            <p>Push the NSClient++ (Windows) or NRPE (Linux) agent to a host from the UI — and bundle a few extra packages with it if you need to.</p>
           </div>
         </article>
         <article class="feat">
@@ -98,7 +95,7 @@
           </span>
           <div>
             <h3>SLA &amp; availability reports</h3>
-            <p>Reports built from the monitoring you're already doing, so you can show uptime per host and service without exporting to a spreadsheet.</p>
+            <p>Reports built from the monitoring you're already doing — uptime per host and service, no exporting to a spreadsheet.</p>
           </div>
         </article>
         <article class="feat">
@@ -155,7 +152,7 @@
     <div class="container">
       <div class="section__head">
         <h2>A look at the interface</h2>
-        <p>Real screenshots from a live Vexor install.</p>
+        <p>Real screenshots from a live install. Click to enlarge.</p>
       </div>
       <div class="shots">
         <figure class="shot">
@@ -186,50 +183,64 @@
     </div>
   </section>
 
-  <!-- TRY IT -->
-  <section class="section section--alt" id="try">
+  <!-- INSTALL -->
+  <section class="section section--alt" id="install">
     <div class="container">
-      <div class="try">
-        <div class="try__copy">
-          <span class="eyebrow">Where the project is at</span>
-          <h2>Free to try while it's early</h2>
-          <p>
-            Vexor is a one-person project in active development. I'm not selling
-            anything yet — right now it's about getting it into the hands of
-            people who run real infrastructure and finding out what's missing.
-          </p>
-          <p>
-            Every install gets a <strong>free trial license</strong> with the full
-            feature set, <strong>valid until 8 May 2028</strong> — so there's plenty
-            of time to actually live with it. If you run servers and want to kick
-            the tyres, I'd genuinely like to hear how it goes — bug reports and
-            rough edges included.
-          </p>
-          <p>
-            And if the project ever reaches the point of paid licenses, <strong>everyone
-            who tests it now and sends feedback gets a heavy discount</strong> on
-            whatever comes later. Early testers won't be forgotten.
-          </p>
-          <p>
-            Two ways to run it: three commands on Rocky / RHEL 10, or an
-            all-in-one <strong>Docker image</strong> if you'd rather spin it up on
-            Ubuntu, Debian or whatever Linux you already have —
-            <a href="https://github.com/sayonarase/vexor-docker">Docker instructions are here</a>.
-          </p>
-          <p class="try__meta">Self-hosted · runs on Rocky Linux / RHEL 10, or Docker on any Linux · your data stays on your box.</p>
+      <div class="section__head">
+        <h2>Install</h2>
+        <p>Two ways to run it. Pick a tab, copy, paste. Every install ships a free trial license — no sign-up.</p>
+      </div>
+
+      <div class="install">
+        <div class="tabs" role="tablist">
+          <button class="tab is-active" role="tab" data-tab="rocky">Rocky / RHEL 10</button>
+          <button class="tab" role="tab" data-tab="docker">Docker (any Linux)</button>
         </div>
-        <div class="try__card">
-          <h3>Try it out</h3>
-          <ol class="try__list">
-            <li>Install it on a test box — three commands on Rocky / RHEL 10, or run it with Docker on any Linux.</li>
-            <li>It ships with a trial license valid until May 2028 — no sign-up needed.</li>
-            <li>Tell me what worked and what didn't.</li>
-          </ol>
-          <a class="btn btn--primary btn--block" href="https://github.com/sayonarase/vexor-monitoring/blob/main/INSTALL.md">Download (early access)</a>
-          <a class="btn btn--ghost btn--block" href="https://github.com/sayonarase/vexor-docker">Run with Docker</a>
-          <a class="btn btn--ghost btn--block" href="mailto:vexormon@sayonara.se">Email me / ask a question</a>
-          <p class="try__small">Testers and early feedback get a big discount on any future license.</p>
+
+        <!-- Rocky -->
+        <div class="panel is-active" data-panel="rocky">
+          <p class="panel__lead">On a fresh Rocky Linux 10 (or RHEL 10-compatible) server, run as <code>root</code>:</p>
+          <div class="code">
+            <button class="code__copy" aria-label="Copy">Copy</button>
+            <pre><code># 1 — add the Vexor repo (also pulls in EPEL, CRB and the GPG keys)
+dnf install -y https://repo.vexormon.com/vexor-release-latest-el$(rpm -E %rhel).rpm
+
+# 2 — install the full server (api, ui, naemon, keycloak, db, graphs…)
+dnf install -y vexor-server
+
+# 3 — first-run setup (databases, passwords, services, firewall)
+vexor-setup</code></pre>
+          </div>
+          <p class="panel__note">That's it — three commands, no manual repo or dependency wrangling. Supported on x86_64 Rocky / AlmaLinux / RHEL / Oracle Linux&nbsp;10. <a href="https://github.com/sayonarase/vexor-monitoring/blob/main/INSTALL.md">Full notes &amp; minimal install →</a></p>
         </div>
+
+        <!-- Docker -->
+        <div class="panel" data-panel="docker">
+          <p class="panel__lead">Prefer Docker, or running on Ubuntu/Debian? The all-in-one image runs the same stack:</p>
+          <div class="code">
+            <button class="code__copy" aria-label="Copy">Copy</button>
+            <pre><code># clone and start
+git clone https://github.com/sayonarase/vexor-docker
+cd vexor-docker
+cp .env.example .env          # set VEXOR_PUBLIC_URL to how you'll reach it
+docker compose up -d
+
+# grab the initial admin credentials (written on first boot)
+docker compose exec vexor cat /etc/vexor/.initial-admin</code></pre>
+          </div>
+          <p class="panel__note">Then open <code>https://&lt;host&gt;/</code>. Image: <code>ghcr.io/sayonarase/vexor:latest</code>. <a href="https://github.com/sayonarase/vexor-docker">Compose file &amp; caveats →</a></p>
+        </div>
+      </div>
+
+      <div class="trial">
+        <p>
+          Vexor is a one-person project in active development. Every install gets a
+          <strong>free trial license</strong> with the full feature set, valid until
+          <strong>May 2028</strong>, so there's time to actually live with it. If you
+          run servers and try it, I'd like to hear how it goes — bug reports and rough
+          edges included.
+        </p>
+        <a class="btn btn--ghost" href="mailto:vexormon@sayonara.se">Email me / ask a question</a>
       </div>
     </div>
   </section>
@@ -239,7 +250,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a class="brand" href="#top">
-          <img src="assets/logo.svg" alt="" width="26" height="26" />
+          <img src="assets/logo.svg" alt="" width="24" height="24" />
           <span>Vexor</span>
         </a>
         <p>Self-hosted monitoring. Early access, built on Naemon.</p>
@@ -248,7 +259,9 @@
         <a href="#what">What it is</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
-        <a href="#try">Try it</a>
+        <a href="#install">Install</a>
+        <a href="https://demo.vexormon.com">Live demo</a>
+        <a href="https://github.com/sayonarase/vexor-monitoring">GitHub</a>
       </nav>
     </div>
     <div class="container footer__bottom">
@@ -265,6 +278,37 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Install tabs
+    (function () {
+      var tabs = document.querySelectorAll('.tab');
+      var panels = document.querySelectorAll('.panel');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var name = tab.getAttribute('data-tab');
+          tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+          panels.forEach(function (p) {
+            p.classList.toggle('is-active', p.getAttribute('data-panel') === name);
+          });
+        });
+      });
+    })();
+
+    // Copy buttons
+    (function () {
+      document.querySelectorAll('.code__copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var code = btn.parentElement.querySelector('code').innerText;
+          navigator.clipboard.writeText(code).then(function () {
+            var prev = btn.textContent;
+            btn.textContent = 'Copied';
+            btn.classList.add('is-copied');
+            setTimeout(function () { btn.textContent = prev; btn.classList.remove('is-copied'); }, 1600);
+          });
+        });
+      });
+    })();
+
+    // Lightbox
     (function () {
       var box = document.getElementById('lightbox');
       var boxImg = document.getElementById('lightboxImg');
