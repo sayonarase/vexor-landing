@@ -33,6 +33,7 @@
       </a>
       <nav class="nav__links">
         <a href="#what">What it is</a>
+        <a href="#why">Why Vexor</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
         <a href="#install">Install</a>
@@ -40,7 +41,7 @@
         <a href="https://github.com/sayonarase/vexor-monitoring/blob/main/CHANGELOG.md" target="_blank" rel="noopener">What's new</a>
         <a href="https://github.com/sayonarase/vexor-monitoring">GitHub</a>
       </nav>
-      <a class="btn btn--primary" href="#install">Install</a>
+      <a class="btn btn--primary" href="https://demo.vexormon.com">Live demo</a>
     </div>
   </header>
 
@@ -57,13 +58,24 @@
           and it runs on your own hardware, so your data stays with you.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="#install">Install it</a>
-          <a class="btn btn--ghost btn--lg" href="https://demo.vexormon.com">Try the live demo</a>
+          <a class="btn btn--primary btn--lg" href="https://demo.vexormon.com">Try the live demo</a>
+          <a class="btn btn--ghost btn--lg" href="#install">Install it yourself</a>
         </div>
-        <p class="hero__note">Built on Naemon, with a new UI and API on top. Three commands on Rocky&nbsp;10, or one Docker image anywhere. <a href="https://demo.vexormon.com">Or poke around the live demo</a> — sign in with <code>demo</code>&nbsp;/&nbsp;<code>demo</code>, read-only, resets every hour.</p>
+        <p class="hero__note">No sign-up. Open the <a href="https://demo.vexormon.com">live demo</a> and sign in with <code>demo</code>&nbsp;/&nbsp;<code>demo</code> — read-only, resets every hour. Or self-host in three commands on Rocky&nbsp;10, or one Docker image anywhere.</p>
+        <ul class="trust" aria-label="Why people try Vexor">
+          <li><span class="trust__ico" aria-hidden="true">✓</span> Runs on your own hardware</li>
+          <li><span class="trust__ico" aria-hidden="true">✓</span> Free trial through 2028</li>
+          <li><span class="trust__ico" aria-hidden="true">✓</span> No sales calls, no seats</li>
+        </ul>
       </div>
       <div class="hero__art">
-        <img src="assets/01-dashboard.png" alt="Vexor dashboard showing host status, a latency graph and a host list" />
+        <figure class="browser">
+          <div class="browser__bar" aria-hidden="true">
+            <span class="browser__dot"></span><span class="browser__dot"></span><span class="browser__dot"></span>
+            <span class="browser__url">vexormon.com</span>
+          </div>
+          <img src="assets/01-dashboard.png" alt="Vexor dashboard showing host status, a latency graph and a host list" />
+        </figure>
       </div>
     </div>
   </section>
@@ -152,8 +164,32 @@
     </div>
   </section>
 
+  <!-- WHY / POSITIONING -->
+  <section class="section section--alt" id="why">
+    <div class="container">
+      <div class="section__head">
+        <h2>Enterprise monitoring, without the enterprise</h2>
+        <p>The kind of visibility big platforms sell for a small fortune — self-hosted, and simple enough to run on your own.</p>
+      </div>
+      <div class="why">
+        <ul class="why__list">
+          <li><strong>No per-host or per-metric billing.</strong> Monitor as much as your hardware can handle. One free trial license unlocks every feature.</li>
+          <li><strong>Your data never leaves your network.</strong> Hosts, logs, metrics and credentials stay on your own server — nothing phones home to a SaaS.</li>
+          <li><strong>Set up in an afternoon, not a quarter.</strong> No consultants, no onboarding project. Add a host, let it scan, and you're monitoring.</li>
+          <li><strong>Built on proven open source.</strong> Naemon at the core, with a modern UI, API, log pipeline and SLA reporting layered on top.</li>
+        </ul>
+        <aside class="why__card">
+          <div class="why__stat"><span>3</span> commands to a full install</div>
+          <div class="why__stat"><span>~30s</span> to add a host &amp; scan it</div>
+          <div class="why__stat"><span>0</span> agents required to start</div>
+          <a class="btn btn--primary" href="https://demo.vexormon.com">See it live →</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS -->
-  <section class="section section--alt" id="how">
+  <section class="section" id="how">
     <div class="container">
       <div class="section__head">
         <h2>How it works</h2>
@@ -180,7 +216,7 @@
   </section>
 
   <!-- SCREENSHOTS -->
-  <section class="section" id="screens">
+  <section class="section section--alt" id="screens">
     <div class="container">
       <div class="section__head">
         <h2>A look at the interface</h2>
@@ -216,7 +252,7 @@
   </section>
 
   <!-- INSTALL -->
-  <section class="section section--alt" id="install">
+  <section class="section" id="install">
     <div class="container">
       <div class="section__head">
         <h2>Install</h2>
@@ -274,6 +310,19 @@ docker compose exec vexor cat /etc/vexor/.initial-admin</code></pre>
         </p>
         <a class="btn btn--ghost" href="mailto:vexormon@sayonara.se">Email me / ask a question</a>
       </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta">
+    <div class="container cta__inner">
+      <h2>Give it ten minutes</h2>
+      <p>Try the live demo in your browser, or self-host it and point it at a real server. Either way, I'd genuinely like to hear what you think.</p>
+      <div class="cta__btns">
+        <a class="btn btn--white btn--lg" href="https://demo.vexormon.com">Open the live demo</a>
+        <a class="btn btn--outline btn--lg" href="#install">Install it yourself</a>
+      </div>
+      <p class="cta__note">Demo login <code>demo</code> / <code>demo</code> · read-only · resets hourly · no sign-up</p>
     </div>
   </section>
 
