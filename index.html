@@ -33,6 +33,7 @@
       </a>
       <nav class="nav__links">
         <a href="#what">What it is</a>
+        <a href="#clusters">Kubernetes</a>
         <a href="#why">Why Vexor</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
@@ -52,7 +53,7 @@
         <span class="tag">Self-hosted · open source stack · early access</span>
         <h1>Monitoring that gets out of your way.</h1>
         <p class="lead">
-          Vexor keeps an eye on your servers, network and services. Add a host and
+          Vexor keeps an eye on your servers, containers, network and services. Add a host and
           it scans for the obvious things; deploy an agent from the browser when you
           want deeper checks. Logs, SLA reports and certificate expiry are built in —
           and it runs on your own hardware, so your data stays with you.
@@ -160,12 +161,63 @@
             <p>Authentication goes through Keycloak / OIDC, so you can plug in your existing LDAP or Active Directory rather than a separate user list.</p>
           </div>
         </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          </span>
+          <div>
+            <h3>More than Linux and Windows</h3>
+            <p>SQL Server gets a deep dive of its own — point-in-time snapshots, per-database drill-down and an A/B comparison of two moments. Proxmox, VMware and XCP-ng are read-only checks, network devices get config backup with diffs, and there's even OpenVMS if you still run it.</p>
+          </div>
+        </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4"/><circle cx="9" cy="13" r="1.2"/><circle cx="15" cy="13" r="1.2"/><path d="M2 12v3M22 12v3"/></svg>
+          </span>
+          <div>
+            <h3>Ask the AI what happened</h3>
+            <p>Summarise an incident timeline or a noisy stretch of logs in plain English. Run Ollama locally so nothing leaves your network, or bring your own OpenAI, Claude, Gemini or Azure key if you'd rather.</p>
+          </div>
+        </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+          </span>
+          <div>
+            <h3>Keep your agents current</h3>
+            <p>Choose which NSClient++ build gets deployed — fetch a stable release from upstream, upload your own MSI, or stay on the bundled one. Previous versions stay in the registry, so a bad build is one click to roll back.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KUBERNETES / OPENSHIFT -->
+  <section class="section section--alt" id="clusters">
+    <div class="container">
+      <div class="section__head">
+        <h2>Kubernetes and OpenShift, without installing anything</h2>
+        <p>Give Vexor a read-only ServiceAccount token and it reads the cluster's own API. Nothing is installed in the cluster, nothing is changed in it, and no workload runs there on Vexor's behalf.</p>
+      </div>
+      <div class="why">
+        <ul class="why__list">
+          <li><strong>Add a cluster the way you add a host.</strong> Pick Kubernetes or OpenShift in the same wizard, hand over the API address and a token, and Vexor probes the cluster and tells you what it can see before you commit to anything.</li>
+          <li><strong>Twelve checks on Kubernetes, thirteen on OpenShift.</strong> Workloads below their replica count, pods crashlooping or stuck pulling an image, node pressure and drain state, PVCs stuck Pending, services whose endpoints have no ready backend — the usual shape of &ldquo;the site is down but every pod looks fine&rdquo;. On OpenShift it also watches cluster operators, the update status and MachineConfigPool rollouts.</li>
+          <li><strong>A monitoring outage is not a service outage.</strong> If Vexor can't reach the cluster, the affected checks report UNKNOWN rather than CRITICAL — which would otherwise wrongly wipe out the measured availability of everything in the cluster at once.</li>
+          <li><strong>Alerts, graphs and SLA reports, as usual.</strong> Cluster checks are ordinary Vexor services, so they flow into the same notification policies and availability reports as the rest of your estate.</li>
+        </ul>
+        <aside class="why__card">
+          <div class="why__stat"><span>0</span> agents in the cluster</div>
+          <div class="why__stat"><span>1</span> licence per cluster, any size</div>
+          <div class="why__stat"><span>12</span> checks, 13 on OpenShift</div>
+          <a class="btn btn--primary" href="https://github.com/sayonarase/vexor-monitoring/blob/main/CHANGELOG.md">Read the release notes →</a>
+        </aside>
       </div>
     </div>
   </section>
 
   <!-- WHY / POSITIONING -->
-  <section class="section section--alt" id="why">
+  <section class="section" id="why">
     <div class="container">
       <div class="section__head">
         <h2>Enterprise monitoring, without the enterprise</h2>
@@ -189,7 +241,7 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="section" id="how">
+  <section class="section section--alt" id="how">
     <div class="container">
       <div class="section__head">
         <h2>How it works</h2>
@@ -216,7 +268,7 @@
   </section>
 
   <!-- SCREENSHOTS -->
-  <section class="section section--alt" id="screens">
+  <section class="section" id="screens">
     <div class="container">
       <div class="section__head">
         <h2>A look at the interface</h2>
@@ -252,7 +304,7 @@
   </section>
 
   <!-- INSTALL -->
-  <section class="section" id="install">
+  <section class="section section--alt" id="install">
     <div class="container">
       <div class="section__head">
         <h2>Install</h2>
@@ -338,6 +390,7 @@ docker compose exec vexor cat /etc/vexor/.initial-admin</code></pre>
       </div>
       <nav class="footer__links">
         <a href="#what">What it is</a>
+        <a href="#clusters">Kubernetes</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
         <a href="#install">Install</a>
