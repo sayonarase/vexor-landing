@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vexor — self-hosted monitoring</title>
-  <meta name="description" content="Vexor is a self-hosted monitoring platform. Add a host, auto-scan for services, deploy agents from the browser, and get SLA reports. Runs on Rocky/RHEL 10 or Docker. Early access — free to try." />
+  <meta name="description" content="Vexor is a self-hosted monitoring platform. Add a host, auto-scan for services, deploy agents from the browser, and get SLA reports. Monitors Windows, Linux, network devices, Kubernetes and OpenVMS. Runs on Rocky/RHEL 10 or Docker. No license required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -38,8 +38,7 @@
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
         <a href="#install">Install</a>
-        <a href="https://demo.vexormon.com">Live demo</a>
-        <a href="https://github.com/sayonarase/vexor-monitoring/blob/main/CHANGELOG.md" target="_blank" rel="noopener">What's new</a>
+        <a href="#news">What's new</a>
         <a href="https://github.com/sayonarase/vexor-monitoring">GitHub</a>
       </nav>
       <a class="btn btn--primary" href="https://demo.vexormon.com">Live demo</a>
@@ -65,7 +64,7 @@
         <p class="hero__note">No sign-up. Open the <a href="https://demo.vexormon.com">live demo</a> and sign in with <code>demo</code>&nbsp;/&nbsp;<code>demo</code> — read-only, resets every hour. Or self-host in three commands on Rocky&nbsp;10, or one Docker image anywhere.</p>
         <ul class="trust" aria-label="Why people try Vexor">
           <li><span class="trust__ico" aria-hidden="true">✓</span> Runs on your own hardware</li>
-          <li><span class="trust__ico" aria-hidden="true">✓</span> Free trial through 2028</li>
+          <li><span class="trust__ico" aria-hidden="true">✓</span> No license, no host limit</li>
           <li><span class="trust__ico" aria-hidden="true">✓</span> No sales calls, no seats</li>
         </ul>
       </div>
@@ -95,7 +94,7 @@
           </span>
           <div>
             <h3>Deploy agents from the browser</h3>
-            <p>Push the NSClient++ (Windows) or NRPE (Linux) agent to a host from the UI — and bundle a few extra packages with it if you need to.</p>
+            <p>Push the NSClient++ (Windows) or NRPE (Linux) agent to a host from the UI — and bundle a few extra packages with it if you need to. Windows hosts are installed remotely over SMB with an admin credential, including Windows 11 24H2 and Server 2025.</p>
           </div>
         </article>
         <article class="feat">
@@ -167,7 +166,16 @@
           </span>
           <div>
             <h3>More than Linux and Windows</h3>
-            <p>SQL Server gets a deep dive of its own — point-in-time snapshots, per-database drill-down and an A/B comparison of two moments. Proxmox, VMware and XCP-ng are read-only checks, network devices get config backup with diffs, and there's even OpenVMS if you still run it.</p>
+            <p>SQL Server gets a deep dive of its own — point-in-time snapshots, per-database drill-down and an A/B comparison of two moments. Proxmox, VMware and XCP-ng are read-only checks, network devices get config backup with diffs.</p>
+          </div>
+        </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></svg>
+          </span>
+          <div>
+            <h3>OpenVMS, taken seriously</h3>
+            <p>Agentless over SSH with a least-privilege account. CPU per processor and per process, memory and pool, paging and lock manager, disk errors and shadow sets, queues, intrusion attempts, process quotas, licences, VSI updates and certificate expiry — and it cleans up after its own SSH sessions on a busy host.</p>
           </div>
         </article>
         <article class="feat">
@@ -186,6 +194,24 @@
           <div>
             <h3>Keep your agents current</h3>
             <p>Choose which NSClient++ build gets deployed — fetch a stable release from upstream, upload your own MSI, or stay on the bundled one. Previous versions stay in the registry, so a bad build is one click to roll back.</p>
+          </div>
+        </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="m7 15 3-4 3 2 5-6"/><path d="M15 4v14" stroke-dasharray="2 2"/></svg>
+          </span>
+          <div>
+            <h3>Graphs that tell the truth</h3>
+            <p>Every check with performance data gets a graph on a real time axis, with readable units. If a host stopped answering, the gap is shaded and labelled with how long it lasted instead of hidden behind a straight line.</p>
+          </div>
+        </article>
+        <article class="feat">
+          <span class="feat__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg>
+          </span>
+          <div>
+            <h3>Secrets stay secret</h3>
+            <p>Host credentials, notification tokens, cloud keys and webhook secrets are encrypted in the database and kept out of logs and API responses. Every bundled component — sign-in, log pipeline, libraries — gets security updates through plain <code>dnf update</code>.</p>
           </div>
         </article>
       </div>
@@ -208,7 +234,7 @@
         </ul>
         <aside class="why__card">
           <div class="why__stat"><span>0</span> agents in the cluster</div>
-          <div class="why__stat"><span>1</span> licence per cluster, any size</div>
+          <div class="why__stat"><span>1</span> read-only token is all it needs</div>
           <div class="why__stat"><span>12</span> checks, 13 on OpenShift</div>
           <a class="btn btn--primary" href="https://github.com/sayonarase/vexor-monitoring/blob/main/CHANGELOG.md">Read the release notes →</a>
         </aside>
@@ -225,7 +251,7 @@
       </div>
       <div class="why">
         <ul class="why__list">
-          <li><strong>No per-host or per-metric billing.</strong> Monitor as much as your hardware can handle. One free trial license unlocks every feature.</li>
+          <li><strong>No per-host or per-metric billing.</strong> Monitor as much as your hardware can handle. No license either: every feature is included and nothing expires.</li>
           <li><strong>Your data never leaves your network.</strong> Hosts, logs, metrics and credentials stay on your own server — nothing phones home to a SaaS.</li>
           <li><strong>Set up in an afternoon, not a quarter.</strong> No consultants, no onboarding project. Add a host, let it scan, and you're monitoring.</li>
           <li><strong>Built on proven open source.</strong> Naemon at the core, with a modern UI, API, log pipeline and SLA reporting layered on top.</li>
@@ -237,6 +263,61 @@
           <a class="btn btn--primary" href="https://demo.vexormon.com">See it live →</a>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <!-- RECENTLY SHIPPED -->
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section__head">
+        <h2>Recently shipped</h2>
+        <p>Vexor is updated often. The highlights of the last few months:</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="feat news">
+          <div>
+            <time datetime="2026-11-01">Nov 1</time>
+            <h3>Secrets encrypted at rest</h3>
+            <p>Notification tokens, channel settings, cloud keys and webhook secrets are encrypted in the database, and tokens no longer appear in logs.</p>
+          </div>
+        </article>
+        <article class="feat news">
+          <div>
+            <time datetime="2026-10-31">Oct 31</time>
+            <h3>No license required</h3>
+            <p>Every feature is available, with no host limit and nothing that expires.</p>
+          </div>
+        </article>
+        <article class="feat news">
+          <div>
+            <time datetime="2026-10-31">Oct 31</time>
+            <h3>Agent push for the newest Windows</h3>
+            <p>Remote agent install over SMB works on Windows 11 24H2 and Windows Server 2025.</p>
+          </div>
+        </article>
+        <article class="feat news">
+          <div>
+            <time datetime="2026-10-26">Oct 26</time>
+            <h3>Nine new OpenVMS checks</h3>
+            <p>Disk errors, shadow sets, pool memory, intrusion attempts, process quotas, resource waits, system resources, account expiry and certificates — plus per-processor and per-process CPU alerts.</p>
+          </div>
+        </article>
+        <article class="feat news">
+          <div>
+            <time datetime="2026-10-23">Oct 23</time>
+            <h3>Graphs that show outages</h3>
+            <p>A real time axis, readable units, and periods without data shaded instead of bridged by a straight line.</p>
+          </div>
+        </article>
+        <article class="feat news">
+          <div>
+            <time datetime="2026-09-04">Sep 4</time>
+            <h3>Log shipping managed from the UI</h3>
+            <p>Generate, reveal and rotate the log ingest token in Vexor itself, with a list of the machines that will need the new one.</p>
+          </div>
+        </article>
+      </div>
+      <p class="news__more"><a href="https://github.com/sayonarase/vexor-monitoring/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Full release notes →</a></p>
     </div>
   </section>
 
@@ -308,7 +389,7 @@
     <div class="container">
       <div class="section__head">
         <h2>Install</h2>
-        <p>Two ways to run it. Pick a tab, copy, paste. Every install ships a free trial license — no sign-up.</p>
+        <p>Two ways to run it. Pick a tab, copy, paste. No license key, no sign-up — every feature is included.</p>
       </div>
 
       <div class="install">
@@ -354,9 +435,9 @@ docker compose exec vexor cat /etc/vexor/.initial-admin</code></pre>
 
       <div class="trial">
         <p>
-          Vexor is a one-person project in active development. Every install gets a
-          <strong>free trial license</strong> with the full feature set, valid until
-          <strong>May 2028</strong>, so there's time to actually live with it. If you
+          Vexor is a one-person project in active development. It needs
+          <strong>no license</strong>: every feature, no host limit, nothing that
+          expires. If you
           run servers and try it, I'd like to hear how it goes — bug reports and rough
           edges included.
         </p>
@@ -391,6 +472,7 @@ docker compose exec vexor cat /etc/vexor/.initial-admin</code></pre>
       <nav class="footer__links">
         <a href="#what">What it is</a>
         <a href="#clusters">Kubernetes</a>
+        <a href="#news">What's new</a>
         <a href="#how">How it works</a>
         <a href="#screens">Screenshots</a>
         <a href="#install">Install</a>
